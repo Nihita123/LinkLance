@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -24,28 +25,34 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="text-xl font-bold text-primary">LinkLance</div>
+        <Link to="/" className="text-xl font-bold text-primary">
+          LinkLance
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
-          <a href="#" className="hover:text-primary transition">
+          <Link to="/" className="hover:text-primary transition">
             Home
-          </a>
-          <a href="#" className="hover:text-primary transition">
+          </Link>
+          <Link to="/explore" className="hover:text-primary transition">
             Explore
-          </a>
-          <a href="#" className="hover:text-primary transition">
+          </Link>
+          <Link to="/post-project" className="hover:text-primary transition">
             Post Project
-          </a>
-          <a href="#" className="hover:text-primary transition">
+          </Link>
+          <Link to="/about" className="hover:text-primary transition">
             About
-          </a>
+          </Link>
         </div>
 
         {/* Actions */}
         <div className="hidden md:flex space-x-4">
-          <Button variant="outline">Login</Button>
-          <Button>Sign Up</Button>
+          <Link to="/login">
+            <Button variant="outline">Login</Button>
+          </Link>
+          <Link to="/signup">
+            <Button>Sign Up</Button>
+          </Link>
         </div>
 
         {/* Mobile Menu */}
@@ -58,23 +65,27 @@ const Navbar = () => {
             </SheetTrigger>
             <SheetContent side="right" className="w-64">
               <div className="flex flex-col space-y-4 mt-8">
-                <a href="#" className="hover:text-primary">
+                <Link to="/" className="hover:text-primary">
                   Home
-                </a>
-                <a href="#" className="hover:text-primary">
+                </Link>
+                <Link to="/explore" className="hover:text-primary">
                   Explore
-                </a>
-                <a href="#" className="hover:text-primary">
+                </Link>
+                <Link to="/post-project" className="hover:text-primary">
                   Post Project
-                </a>
-                <a href="#" className="hover:text-primary">
+                </Link>
+                <Link to="/about" className="hover:text-primary">
                   About
-                </a>
+                </Link>
                 <div className="pt-4 border-t">
-                  <Button variant="outline" className="w-full mb-2">
-                    Login
-                  </Button>
-                  <Button className="w-full">Sign Up</Button>
+                  <Link to="/login">
+                    <Button variant="outline" className="w-full mb-2">
+                      Login
+                    </Button>
+                  </Link>
+                  <Link to="/signup">
+                    <Button className="w-full">Sign Up</Button>
+                  </Link>
                 </div>
               </div>
             </SheetContent>
